@@ -82,11 +82,11 @@ class ProductController(val productService: ProductService) {
     fun listProducts(@RequestParam(value = "size", defaultValue = "10") size: Int,
                      @RequestParam(value = "page", defaultValue = "0") page: Int): WebResponse<List<ProductResponse>> {
         val request = ListProductRequest(page = page, size = size)
-        val responses = productService.list(request)
+        val response = productService.list(request)
         return WebResponse(
             code = 200,
             status = "OK",
-            data = responses
+            data = response
         )
     }
 }
